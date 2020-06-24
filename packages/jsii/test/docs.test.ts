@@ -250,7 +250,8 @@ test('can mark stable', async () => {
 test('can mark experimental', async () => {
   const assembly = await compile(`
     /**
-     * Slightly less solid Foo
+     * EXPERIMENTAL
+     * Slightly les solid Foo
      *
      * @experimental
      */
@@ -261,6 +262,7 @@ test('can mark experimental', async () => {
   const classType = assembly.types!['testpkg.Foo'] as spec.ClassType;
 
   expect(classType.docs!.stability).toBe(spec.Stability.Experimental);
+  console.log(`nijaaaa ${JSON.stringify(classType.docs)}`);
 });
 
 // ----------------------------------------------------------------------
